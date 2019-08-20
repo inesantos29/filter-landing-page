@@ -1,0 +1,9 @@
+.navbar{
+    background-color: #e7e7e7;
+}
+
+.navbar-brand{
+    text-transform:uppercase;
+    font-weight:600;
+    letter-spacing: 4px;
+}
