@@ -1,38 +1,96 @@
 import React, {Component} from 'react';
-import { Container } from 'react-bootstrap';
+import {Button, Container} from 'react-bootstrap';
 
-import { Intro } from '../Intro';
-import { UserCard } from '../UserCard';
+import { UserCard } from "../UserCard";
+import { Intro } from "../Intro";
 
-import "./style.css"
+import UserData from '../../users';
+
+import './style.css';
 
 class UserCardList extends Component {
   state = {
-    users: []
+    usersList: []
   };
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then((users) => {
-        this.setState({users: users});
-      })
+    this.setState({
+      usersList: UserData
+    })
+  }
+
+  getSort = (dataIndex, sort) => {
+    return sort && sort.dataIndex === dataIndex ?
+      ` (${sort.direction})` :
+      null;
+  };
+
+  handleClick = (dataIndex) => {
+    const { sort } = this.state;
+
+    const direction = sort && sort.dataIndex === dataIndex ?
+      (sort.direction === 'ASC' ? 'DESC' : 'ASC') :
+      'ASC';
+
+    this.setState({
+      sort: {
+        dataIndex, direction
+      }
+    });
+  };
+
+  static sortData (usersList, sort) {
+    if (sort) {
+      const { dataIndex, direction } = sort;
+      const dir = direction === 'ASC' ? 1 : -1;
+
+      return usersList.slice().sort((A, B) => {
+        const a = A[ dataIndex ];
+        const b = B[ dataIndex ];
+
+        if (a > b) {
+          return 1 * dir;
+        }
+
+        if (a < b) {
+          return -1 * dir;
+        }
+
+        return 0;
+      });
+    }
+
+    return usersList
   }
 
   render() {
-    const { users } = this.state;
+    const { usersList } = this.state;
+    const { sort } = this.state;
     return (
       <Container>
         <Intro/>
+        <div className="sort-elm">
+          <p>Sort by:</p>
+          <Button onClick={this.handleClick.bind(this, 'name')} variant="outline-success ml-2 mr-2">
+            Name
+            {this.getSort('name', sort)}
+          </Button>
+          <Button onClick={this.handleClick.bind(this, 'city')} variant="outline-success">
+            City
+            {this.getSort('city', sort)}
+          </Button>
+        </div>
+
         <div className="card-list">
-          {users.map(user => (
-            <UserCard
-              id={user.id}
-              key={user.id}
-              name={user.name}
-              company={user.company}
-            />
-          ))}
+          {
+            UserCardList.sortData(usersList, sort).map(user => (
+              <UserCard
+                id={user.id}
+                key={user.id}
+                name={user.name}
+                city={user.city}
+              />
+            ))}
         </div>
       </Container>
     )

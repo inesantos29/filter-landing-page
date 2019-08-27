@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "city": "Liverpool"
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "city": "London"
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "city": "Manchester"
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "city": "London"
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "city": "Liverpool"
+  },
+  {
+    "id": 6,
+    "name": "Dennis Schulist",
+    "city": "Manchester",
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "city": "Manchester"
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir",
+    "city": "Liverpool"
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "city": "London"
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "city": "London"
+  }
+
+]
