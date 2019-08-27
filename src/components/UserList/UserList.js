@@ -29,8 +29,8 @@ class UserCardList extends Component {
     const { sort } = this.state;
 
     const direction = sort && sort.dataIndex === dataIndex ?
-      (sort.direction === 'ASC' ? 'DESC' : 'ASC') :
-      'ASC';
+      (sort.direction === 'asc' ? 'desc' : 'asc') :
+      'asc';
 
     this.setState({
       sort: {
@@ -42,7 +42,7 @@ class UserCardList extends Component {
   static sortData (usersList, sort) {
     if (sort) {
       const { dataIndex, direction } = sort;
-      const dir = direction === 'ASC' ? 1 : -1;
+      const dir = direction === 'asc' ? 1 : -1;
 
       return usersList.slice().sort((A, B) => {
         const a = A[ dataIndex ];
@@ -66,17 +66,18 @@ class UserCardList extends Component {
   render() {
     const { usersList } = this.state;
     const { sort } = this.state;
+
     return (
       <Container>
         <Intro/>
-        <div className="sort-elm">
+        <div className="sort-elm text-right mb-4">
           <p>Sort by:</p>
           <Button onClick={this.handleClick.bind(this, 'name')} variant="outline-success ml-2 mr-2">
-            Name
+            <strong>Name</strong>
             {this.getSort('name', sort)}
           </Button>
           <Button onClick={this.handleClick.bind(this, 'city')} variant="outline-success">
-            City
+            <strong>City</strong>
             {this.getSort('city', sort)}
           </Button>
         </div>
