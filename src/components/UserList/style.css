@@ -5,7 +5,6 @@
     grid-row-gap: 20px;
 }
 
-
 @media only screen and (max-width: 992px) {
     .card-list{
         grid-template-columns: 1fr 1fr;
@@ -14,6 +13,25 @@
     }
 }
 
+@media only screen and (max-width: 550px) {
+    .user-card.card{
+        flex-direction: unset;
+    }
+
+    .user-card .card-img-top {
+        width: 50%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .card-body {
+        width: 50%;
+    }
+
+    .card-list{
+        grid-template-columns: 1fr;
+    }
+}
 
 .sort-elm p{
     display: inline-block;

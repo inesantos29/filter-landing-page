@@ -37,6 +37,7 @@ class UserCardList extends Component {
         dataIndex, direction
       }
     });
+
   };
 
   static sortData (usersList, sort) {
