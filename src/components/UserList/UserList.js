@@ -90,7 +90,8 @@ class UserCardList extends Component {
                 name={user.name}
                 city={user.city}
               />
-            ))}
+            ))
+          }
         </div>
       </Container>
     )

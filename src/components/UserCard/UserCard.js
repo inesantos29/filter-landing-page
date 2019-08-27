@@ -9,7 +9,7 @@ function UserCard({ id, name, city }) {
   const emoji = ['👤'];
 
   return (
-      <Card className="user-card" style={{ width: '18rem' }}>
+      <Card className="user-card">
           <Card.Img variant="top" src={`https://api.adorable.io/avatars/100/${id}`} />
           <Card.Body>
               <h5>{name}</h5>

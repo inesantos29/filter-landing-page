@@ -1,11 +1,15 @@
-.user-card{
-    margin: 2rem 0 0 0;
-    flex-wrap: wrap;
-    place-content: flex-start space-around;
+.card{
+    position: unset;
 }
 
+.user-card{
+    width: 100%;
+}
+
+
 .card-body{
-    background-color: lightgray;
+    background-color: #e7e7e7;
+    padding: 1rem;
 }
 
 .card-body h5{
@@ -32,4 +36,24 @@
     display: inline-block;
     padding: 5px;
     border-radius: 50%;
+}
+
+@media only screen and (max-width: 550px) {
+    .user-card.card{
+        flex-direction: unset;
+    }
+
+    .user-card .card-img-top {
+        width: 50%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .card-body {
+        width: 50%;
+    }
+
+    .card-list{
+        grid-template-columns: 1fr;
+    }
 }
